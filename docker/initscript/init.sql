@@ -1,6 +1,3 @@
-CREATE ROLE credit_service WITH LOGIN PASSWORD 'securito';
-GRANT ALL ON ALL TABLES IN SCHEMA "public" TO credit_service;
-
 CREATE TABLE "public"."credit_infromation"
 (
     "id"              integer                NOT NULL,
@@ -23,3 +20,7 @@ VALUES (1, 360, 3, 'BayernLB', 'bf9ebf04-5247-4b7f-b2bc-656f8bcc3fff', 0.00195),
        (8, 360, 24, 'Merrill Lynch', '9584331b-ba94-44cc-8fac-14bebe55f08a', 0.00195),
        (9, 360, 18, 'Morgan Stanley', 'f915f7f6-1e66-4ff4-a217-978e0cd4835f', 0.001977),
        (10, 360, 3, 'Citigroup Global Markets Deutschland', 'd571ab5e-ed9c-435b-8b8f-6aa0e084699a', 0.001985);
+
+CREATE USER credit_service WITH PASSWORD 'securito';
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO credit_service;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO credit_service;
